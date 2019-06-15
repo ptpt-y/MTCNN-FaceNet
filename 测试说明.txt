@@ -1,0 +1,23 @@
+使用MTCNN进行人脸检测：
+python detect_face.py "video.mp4"
+默认帧间隔为24，检测结果存放在"./datasets/mtcnn_160_face/"下
+（datasets中已经有了检测库和待识别人脸库，可以跳过这步，直接进行人脸识别）
+
+facenet预训练模型：默认使用CASIA-WebFace
+'20180408-102900/20180408-102900.pb' （CASIA-WebFace）
+'20190218-164145/20190218-164145.pb'（基于亚洲人脸）
+
+人脸识别（欧式距离）：
+python recognition.py "./datasets/mtcnn_160_face/img/" 
+默认距离阈值1.1，使用，结果人脸库在"./video_face_result/"下
+
+人脸识别（余弦相似度）：
+python recognition-cos.py "./datasets/mtcnn_160_face/img/" 
+默认距离阈值1.1，结果人脸库在"./video_face_result/cos/"下
+
+人脸识别时，split_img默认为False，不对待识别人脸库进行模糊检测。
+改为True才调用split.py进行模糊检测，并原人脸库相同路径下生成模糊、清晰待识别人脸库（只是生成，不在这两个库上识别）。
+
+检测识别同时进行（欧式距离）：
+python detect_reco_all.py “video.mp4”
+默认距离阈值1.1，检测和识别结果存放在"./datasets/mtcnn_160/"下
