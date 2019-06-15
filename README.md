@@ -3,6 +3,8 @@
 
 针对给定视频——《都挺好》第一集，统计该视频中出现过的人物共多少位。使用课程中讲授的[MCTNN](https://github.com/wangbm/MTCNN-Tensorflow)和[facenet](https://github.com/davidsandberg/facenet)两个模型，使用MTCNN检测视频中的人脸，使FaceNet进行人脸识别。
 
+MTCNN中的prepare_Data, pretrained, save_model三个文件夹没有上传，可以到上面的MTCNN仓库链接中下载。
+
 - 使用MTCNN进行人脸检测：
   ``` Python
   python detect_face.py "video.mp4" --save_path './datasets/mtcnn_160_face/video_img/' --capture_interval 24 
